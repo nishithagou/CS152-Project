@@ -20,3 +20,34 @@
 | 7 | &= | assignment | right to left |
 
 
+reserved words:
+function
+beginpaeams
+endparams
+beginlocals
+endlocals
+beginbody
+endbody
+integer
+array
+of
+if
+then
+else if
+endif
+else
+while
+do
+beginloop
+endloop
+continue
+read
+write
+and
+or
+not
+true
+false 
+return
+
+
