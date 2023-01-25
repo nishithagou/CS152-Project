@@ -1,8 +1,15 @@
 # CS152-Project
 
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| Precedence | Operator | Description | Associativity |
+| ------------- | ------------- | ------------- | ------------- |
+| 0 | () |
+| 1 | [] |
+| 2 | * |
+| 1 | / |
+| 1 | % |
+| 1 | + |
+| 1 | - |
+| 1 | > |
+
 
