@@ -22,7 +22,7 @@
 
 reserved words:
 function
-beginpaeams
+beginparams
 endparams
 beginlocals
 endlocals
