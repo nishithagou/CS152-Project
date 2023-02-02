@@ -16,8 +16,8 @@
 |   | <= | less than or equal to | left to right |
 |   | == | is it equal to? | left to right |
 |   | <> | not equal to | left to right |
-| 6 | not | logical not | right to left |
-| 7 | &= | assignment | right to left |
+| 5 | not | logical not | right to left |
+| 6 | &= | assignment | right to left |
 
 
 reserved words:
