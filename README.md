@@ -51,8 +51,12 @@ false
 return  
 
 Additional Specifications:  <br>
-For one-line comments, begin line with # <br>
+Variable names are all lowercase, cannot begin with a special character or number, and cannot contain any spaces. <br>
+Language is case sensitive, all reserved words should be all lowercase. <br>
+For one-line comments, begin line with. Comment will extend to end of line. <br>
 For multi-line comments, begin comment with /* and end comment with */ <br>
+
+
 
 
 
