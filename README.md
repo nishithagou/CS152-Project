@@ -21,34 +21,34 @@
 
 
 reserved words:
-function
-beginparams
-endparams
-beginlocals
-endlocals
-beginbody
-endbody
-integer
-array
-of
-if
-then
-else if
-endif
-else
-while
-do
-beginloop
-endloop
-continue
-read
-write
-and
-or
-not
-true
-false 
-return  
+function <br>
+beginparams <br>
+endparams <br>
+beginlocals <br>
+endlocals <br>
+beginbody <br>
+endbody <br>
+integer <br>
+array <br>
+of <br>
+if <br>
+then <br>
+else if <br>
+endif <br>
+else <br>
+while <br>
+do <br>
+beginloop <br>
+endloop <br>
+continue <br>
+read <br>
+write <br>
+and <br>
+or <br>
+not <br>
+true <br>
+false <br>
+return <br>
 
 Additional Specifications:  <br>
 Variable names are all lowercase, cannot begin with a special character or number, and cannot contain any spaces. <br>
