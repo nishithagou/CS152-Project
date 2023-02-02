@@ -50,6 +50,10 @@ true
 false 
 return  
 
+Additional Specifications:  <br>
+For one-line comments, begin line with # <br>
+For multi-line comments, begin comment with /* and end comment with */ <br>
+
 
 
 
