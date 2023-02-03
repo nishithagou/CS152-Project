@@ -24,8 +24,8 @@ reserved words: <br>
 function <br>
 beginparams <br>
 endparams <br>
-beginlocals <br>
-endlocals <br>
+beginlocalvars <br>
+endlocalvars <br>
 beginbody <br>
 endbody <br>
 integer <br>
