@@ -26,8 +26,8 @@ beginparams <br>
 endparams <br>
 beginlocalvars <br>
 endlocalvars <br>
-beginbody <br>
-endbody <br>
+bodystart <br>
+bodyend <br>
 integer <br>
 array <br>
 of <br>
