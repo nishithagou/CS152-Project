@@ -9,7 +9,7 @@
 | Addition | x + y, a + b + c |
 | Subtraction | x - y, a - b - c |
 | Multiplication | x * y, a * b * c |
-| Division | x / y. a / b / c |
+| Division | x / y, a / b / c |
 | Modulus | x % y |
 | Less than | x < y |
 | Greater than | x > y|
@@ -21,8 +21,35 @@
 | If-then-else statement |
 | Read statement |
 | Write statement |
-| Comments | // single line comment //, /* multi
-line comment */ \
+| Function (taking multiple scalar arguments) | 
+| Comments | // single line comment //, /* multi line comment */ |
+
+| Symbol in Language | Token Name |
+| ------------- | ------------- | 
+| ( | L_PAREN |
+| ) | R_PAREN |
+| + | PLUS |
+| - | MINUS |
+| * | MULT |
+| / | DIV |
+| % | MOD |
+
+| &= | ASSIGNMENT |
+| [ | L_SQ_BRACKET |
+| ] | R_SQ_BRACKET |
+| : | COLON |
+| ; | SEMICOLON |
+| , | COMMA |
+| < | LESS_THAN |
+| > | GREAT_THAN |
+| <= | LESS_THAN_EQ |
+| >= | GREAT_THAN_EQ |
+| == | EQ_TO |
+| != | NOT_EQ |
+|
+
+
+
 
 
 
