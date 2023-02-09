@@ -33,7 +33,6 @@
 | * | MULT |
 | / | DIV |
 | % | MOD |
-
 | &= | ASSIGNMENT |
 | : | COLON |
 | ; | SEMICOLON |
