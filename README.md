@@ -10,7 +10,7 @@ Compiler - BIG-LC <br>
 | Integer scalar variables | int x; <br> int one, two; #declaring multiple vars on same line |
 | One-dimensional arrays of integers | a : int array[10]; <br> b : int array[10]; <br> a &= b; <br> a[0] &= 1; |
 | Variable Declaration | x : int; <br> a : int array[5]; <br> var12_ : int; |
-| Assignment statement | x &= 4, int x &= 2 + 1 |
+| Assignment statement | x : int; <br> x &= 4; <br> x &= x + 1; |
 | Addition | x + y, a + b + c |
 | Subtraction | x - y, a - b - c |
 | Multiplication | x * y, a * b * c |
