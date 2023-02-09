@@ -8,7 +8,7 @@ Compiler - BIG-LC <br>
 | Language Feature | Code Example |
 | ------------- | ------------- | 
 | Integer scalar variables | int x; <br> int one, two; |
-| One-dimensional arrays of integers | a &= array[10], a[0] &= 1 |
+| One-dimensional arrays of integers | a : int array[10]; <br> b : int array[10]; <br> a &= b; <br> a[0] &= 1; |
 | Variable Declaration | x: int; |
 | Assignment statement | x &= 4, int x &= 2 + 1 |
 | Addition | x + y, a + b + c |
@@ -109,13 +109,14 @@ false <br>
 return <br>
 
 Additional Specifications:  <br>
-Variable names are all lowercase, cannot begin with a special character or number, and cannot contain any spaces. <br>
+Variable names use only lowercase letters, cannot begin with an '@' or number, and cannot contain any spaces. Identifier names can however contain underscores, '@' symbols, and numbers within the name.  <br>
 Language is case sensitive, all reserved words should be all lowercase. <br>
 To represent a newline, use \n. <br>
 A main method with no arguments is necessary for a program to function. <br>
 Functions can accept any number of arguments passed by value. <br>
-Body will be indented. <br>
+Body of all functions will be indented. <br>
 Comments begin with ##, end when a newline is detected <br>
+
 
 
 
