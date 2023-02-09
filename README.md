@@ -16,14 +16,14 @@ Compiler - BIG-LC <br>
 | Multiplication | x &= cat * dog; <br> d &= x * y * cat; |
 | Division | x &= x / y; <br> d &= a / b / c; |
 | Modulus | remainder &= x % y; |
-| Less than | if x < y then write x; <br> endif; |
-| Greater than | if x > y then x &= x + 1; <br> endif;|
-| Equal to? | if x == y then x &= x + 1; <br> endif; |
+| Less than | if x < y then <br>    write x; <br> endif; |
+| Greater than | if x > y then <br>   x &= x + 1; <br> endif;|
+| Equal to? | if x == y then <br>   x &= x + 1; <br> endif; |
 | Less than or equal to | x <= y |
 | Greater than or equal to | x >= y |
-| Not equal to | if x != y then x &= 0; <br> endif;|
+| Not equal to | if x != y then <br>   x &= 0; <br> endif;|
 | While loop | while x < y loopbegin <br>   x &= x - 1; <br> loopend; |
-| If-then-else statement | if p < 10 then <br> write p; <br> else <br>   write q <br> endif;|
+| If-then-else statement | if p < 10 then <br>   write p; <br> else <br>   write q <br> endif;|
 | Read statement | read p; <br> if p < 10 then p &= p + 5; <br> endif; <br> write p; |
 | Write statement | a &= 5; <br> a &= a - 3; <br> write a; |
 | Function (taking multiple scalar arguments) | function main; <br> beginparameters <br>     a : int; <br> endparameters <br> beginlocalvars <br> endlocalvars <br> bodystart <br>    if a < 5 then return 10; <br>   endif; <br> endbody <br> |
