@@ -35,8 +35,6 @@
 | % | MOD |
 
 | &= | ASSIGNMENT |
-| [ | L_SQ_BRACKET |
-| ] | R_SQ_BRACKET |
 | : | COLON |
 | ; | SEMICOLON |
 | , | COMMA |
