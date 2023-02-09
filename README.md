@@ -23,7 +23,7 @@ Compiler - BIG-LC <br>
 | Not equal to | x != y |
 | While loop | while x < y <br> loopbegin <br>   x = x - 1; <br> loopend; |
 | If-then-else statement | if p < 10 then write p; <br> endif;|
-| Read statement | read p; if p < 10 then p &= p + 5 |
+| Read statement | read p; <br> if p < 10 then p &= p + 5 <br> write p; |
 | Write statement | a = 5; a = a - 3; write a |
 | Function (taking multiple scalar arguments) | function main; <br> beginparameters <br>     a : int; <br> endparameters <br> beginlocalvars <br> endlocalvars <br> bodystart <br>    if a < 5 then return 10; <br>   endif; <br> endbody <br> |
 | Comments | ##comment |
