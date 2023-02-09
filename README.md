@@ -3,7 +3,7 @@
 
 | Language Feature | Code Example |
 | ------------- | ------------- | 
-
+| Integer scalar variables | int x; int one, two; |
 
 reserved words: <br>
 function <br>
