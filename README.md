@@ -110,7 +110,7 @@ To represent a newline, use \n. <br>
 A main method with no arguments is necessary for a program to function. <br>
 Functions can accept any number of arguments passed by value. <br>
 Body will be indented. <br>
-Comments begin with ## <br>
+Comments begin with ##, end when a newline is detected <br>
 
 
 
