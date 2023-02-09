@@ -4,7 +4,7 @@
 | Language Feature | Code Example |
 | ------------- | ------------- | 
 | Integer scalar variables | int x; int one, two; |
-| One-dimensional arrays of integers | 
+| One-dimensional arrays of integers | a &= array[10], a[0] &= 1 |
 | Assignment statement | x &= 4, int x &= 2 + 1 |
 | Addition | x + y, a + b + c |
 | Subtraction | x - y, a - b - c |
@@ -18,11 +18,11 @@
 | Greater than or equal to | x >= y |
 | Not equal to | x != y |
 | While loop | 
-| If-then-else statement |
-| Read statement |
-| Write statement |
-| Function (taking multiple scalar arguments) | 
-| Comments | // single line comment //, /* multi line comment */ |
+| If-then-else statement | if p < 10 then write p |
+| Read statement | read p; if p < 10 then p &= p + 5 |
+| Write statement | a = 5; a = a - 3; write a |
+| Function (taking multiple scalar arguments) | function main; beginparams int a; int b; endparams |
+| Comments | ##comment |
 
 | Symbol in Language | Token Name |
 | ------------- | ------------- | 
@@ -50,7 +50,7 @@
 | endlocalvars | END_LOCALS |
 | bodystart | BODY_START |
 | bodyend | BODY_END |
-| integer | INTEGER |
+| int | INTEGER |
 | array| ARRAY |
 | of | OF |
 | if | IF |
@@ -81,7 +81,7 @@ beginlocalvars <br>
 endlocalvars <br>
 bodystart <br>
 bodyend <br>
-integer <br>
+int <br>
 array <br>
 of <br>
 if <br>
@@ -91,8 +91,8 @@ endif <br>
 else <br>
 while <br>
 do <br>
-beginloop <br>
-endloop <br>
+loopbegin <br>
+loopend <br>
 continue <br>
 read <br>
 write <br>
@@ -106,12 +106,11 @@ return <br>
 Additional Specifications:  <br>
 Variable names are all lowercase, cannot begin with a special character or number, and cannot contain any spaces. <br>
 Language is case sensitive, all reserved words should be all lowercase. <br>
-To represent a newline, use /n. <br>
+To represent a newline, use \n. <br>
 A main method with no arguments is necessary for a program to function. <br>
-Functions can accept any number of arguments passed by value, separated by commas. <br>
+Functions can accept any number of arguments passed by value. <br>
 Body will be indented. <br>
-For one-line comments, begin line with. Comment will extend to end of line. <br>
-For multi-line comments, begin comment with /* and end comment with */ <br>
+Comments begin with ## <br>
 
 
 
