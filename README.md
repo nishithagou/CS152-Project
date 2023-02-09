@@ -17,7 +17,7 @@
 | Less than or equal to | x <= y |
 | Greater than or equal to | x >= y |
 | Not equal to | x != y |
-| While loop | 
+| While loop | while x < y loopbegin .... loopend; |
 | If-then-else statement | if p < 10 then write p |
 | Read statement | read p; if p < 10 then p &= p + 5 |
 | Write statement | a = 5; a = a - 3; write a |
