@@ -1,8 +1,8 @@
 # CS152-Project
 
-Language Name - SUPER-L
-Program Extension - .abc
-Compiler - BIG-LC
+Language Name - SUPER-L <br>
+Program Extension - .abc <br>
+Compiler - BIG-LC <br>
 
 
 | Language Feature | Code Example |
