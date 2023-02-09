@@ -9,6 +9,7 @@ Compiler - BIG-LC <br>
 | ------------- | ------------- | 
 | Integer scalar variables | int x; int one, two; |
 | One-dimensional arrays of integers | a &= array[10], a[0] &= 1 |
+| Variable Declaration | x: int; |
 | Assignment statement | x &= 4, int x &= 2 + 1 |
 | Addition | x + y, a + b + c |
 | Subtraction | x - y, a - b - c |
