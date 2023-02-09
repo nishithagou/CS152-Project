@@ -23,8 +23,8 @@ Compiler - BIG-LC <br>
 | Greater than or equal to | x >= y |
 | Not equal to | if x != y then <br>   x &= 0; <br> endif;|
 | While loop | while x < y loopbegin <br>   x &= x - 1; <br> loopend; |
-| If-then-else statement | if p < 10 then <br>   write p; <br> else <br>   write q <br> endif;|
-| Read statement | read p; <br> if p < 10 then p &= p + 5; <br> endif; <br> write p; |
+| If-then-else statement | if p < 10 then <br>   write p; <br> else <br>   write q; <br> endif;|
+| Read statement | read p; <br> if p < 10 then<br>   p &= p + 5; <br> endif; <br> write p; |
 | Write statement | a &= 5; <br> a &= a - 3; <br> write a; |
 | Function (taking multiple scalar arguments) | function main; <br> beginparameters <br>     a : int; <br> endparameters <br> beginlocalvars <br> endlocalvars <br> bodystart <br>    if a < 5 then return 10; <br>   endif; <br> endbody <br> |
 | Comments | ##comment |
@@ -114,7 +114,7 @@ Language is case sensitive, all reserved words should be all lowercase. <br>
 To represent a newline, use \n. <br>
 A main method with no arguments is necessary for a program to function. <br>
 Functions can accept any number of arguments passed by value. <br>
-Body of all functions will be indented. <br>
+Body of all functions, if-then-else statements, and while loops will be indented. <br>
 Comments begin with ##, end when a newline is detected <br>
 
 
