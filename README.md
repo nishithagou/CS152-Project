@@ -44,8 +44,8 @@
 | == | EQ_TO |
 | != | NOT_EQ |
 | function | FUNCTION |
-| beginparams | BEGIN_PARAMS |
-| endparams | END_PARAMS |
+| beginparameters | BEGIN_PARAMS |
+| endparameters | END_PARAMS |
 | beginlocalvars | BEGIN_LOCALS | 
 | endlocalvars | END_LOCALS |
 | bodystart | BODY_START |
@@ -75,8 +75,8 @@
 
 reserved words: <br>
 function <br>
-beginparams <br>
-endparams <br>
+beginparameters <br>
+endparameters <br>
 beginlocalvars <br>
 endlocalvars <br>
 bodystart <br>
