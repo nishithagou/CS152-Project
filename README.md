@@ -43,13 +43,34 @@
 | >= | GREAT_THAN_EQ |
 | == | EQ_TO |
 | != | NOT_EQ |
-|
-
-
-
-
-
-
+| function | FUNCTION |
+| beginparams | BEGIN_PARAMS |
+| endparams | END_PARAMS |
+| beginlocalvars | BEGIN_LOCALS | 
+| endlocalvars | END_LOCALS |
+| bodystart | BODY_START |
+| bodyend | BODY_END |
+| integer | INTEGER |
+| array| ARRAY |
+| of | OF |
+| if | IF |
+| then | THEN |
+| endif | ENDIF |
+| else | ELSE |
+| while | WHILE |
+| do | DO |
+| for | FOR |
+| loopbegin | LOOP_BEGIN |
+| loopend | LOOP_END |
+| continue | CONTINUE |
+| read | READ |
+| write | WRITE |
+| and | AND |
+| or | OR |
+| not | NOT |
+| true | TRUE |
+| false | FALSE |
+| return | RETURN |
 
 
 reserved words: <br>
