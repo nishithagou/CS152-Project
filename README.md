@@ -7,7 +7,7 @@ Compiler - BIG-LC <br>
 
 | Language Feature | Code Example |
 | ------------- | ------------- | 
-| Integer scalar variables | int x; int one, two; |
+| Integer scalar variables | int x; <br> int one, two; |
 | One-dimensional arrays of integers | a &= array[10], a[0] &= 1 |
 | Variable Declaration | x: int; |
 | Assignment statement | x &= 4, int x &= 2 + 1 |
