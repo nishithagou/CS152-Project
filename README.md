@@ -25,7 +25,7 @@ Compiler - BIG-LC <br>
 | If-then-else statement | if p < 10 then write p |
 | Read statement | read p; if p < 10 then p &= p + 5 |
 | Write statement | a = 5; a = a - 3; write a |
-| Function (taking multiple scalar arguments) | function main; beginparams int a; int b; endparams |
+| Function (taking multiple scalar arguments) | function main; <br> beginparams int a; <br> int b; <br> endparams |
 | Comments | ##comment |
 
 | Symbol in Language | Token Name |
