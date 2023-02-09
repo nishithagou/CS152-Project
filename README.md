@@ -4,6 +4,24 @@
 | Language Feature | Code Example |
 | ------------- | ------------- | 
 | Integer scalar variables | int x; int one, two; |
+| One-dimensional arrays of integers | 
+| Assignment statement | x &= 4, int x &= 2 + 1 |
+| Addition | x + y, a + b + c |
+| Subtraction | x - y, a - b - c |
+| Multiplication | x * y, a * b * c |
+| Division | x / y. a / b / c |
+| Modulus | x % y |
+| Less than | x < y |
+| Greater than | x > y|
+| Equal to? | x == y |
+| Less than or equal to | x <= y |
+| Greater than or equal to | x >= y |
+| Not equal to | x != y |
+| While loop | 
+
+
+
+
 
 reserved words: <br>
 function <br>
