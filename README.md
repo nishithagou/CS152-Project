@@ -21,8 +21,8 @@ Compiler - BIG-LC <br>
 | Equal to? | if x == y then x &= x + 1; <br> endif; |
 | Less than or equal to | x <= y |
 | Greater than or equal to | x >= y |
-| Not equal to | x != y |
-| While loop | while x < y loopbegin; <br>   x &= x - 1; <br> loopend; |
+| Not equal to | if x != y then x &= 0; <br> endif;|
+| While loop | while x < y loopbegin <br>   x &= x - 1; <br> loopend; |
 | If-then-else statement | if p < 10 then write p; <br> endif;|
 | Read statement | read p; <br> if p < 10 then p &= p + 5; <br> endif; <br> write p; |
 | Write statement | a &= 5; <br> a &= a - 3; <br> write a; |
