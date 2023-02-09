@@ -18,6 +18,11 @@
 | Greater than or equal to | x >= y |
 | Not equal to | x != y |
 | While loop | 
+| If-then-else statement |
+| Read statement |
+| Write statement |
+| Comments | // single line comment //, /* multi
+line comment */ \
 
 
 
