@@ -114,7 +114,7 @@ Language is case sensitive, all reserved words should be all lowercase. <br>
 To represent a newline, use \n. <br>
 A main method with no arguments is necessary for a program to function. <br>
 Functions can accept any number of arguments passed by value. <br>
-Body of all functions, if-then-else statements, and while loops will be indented. <br>
+Body of all functions, if-then-else statements, and while loops will be indented. Parameters and localvariables will also be indented. <br>
 Comments begin with ##, end when a newline is detected <br>
 
 
