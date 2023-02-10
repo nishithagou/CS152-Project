@@ -111,12 +111,12 @@ false <br>
 return <br>
 
 Additional Specifications:  <br>
-Variable names use only lowercase letters, cannot begin with an '@' or number, and cannot contain any spaces. Identifier names can however contain underscores, '@' symbols, and numbers within the name.  <br>
+Identifier names use only lowercase letters, cannot begin with an '@' or number, and cannot contain any spaces. Identifier names can however contain underscores, '@' symbols, and numbers within the name.  <br>
 Language is case sensitive, all reserved words should be all lowercase. <br>
 To represent a newline, use \n. <br>
 A main method with no arguments is necessary for a program to function. <br>
 Functions can accept any number of arguments passed by value. <br>
-Body of all functions, if-then-else statements, and while loops will be indented. Parameters and localvariables will also be indented. <br>
+Body of all functions, if-then-else statements, and while loops will be indented. Parameters and local variables will also be indented. <br>
 Comments begin with ##, end when a newline is detected <br>
 
 
