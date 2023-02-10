@@ -29,7 +29,6 @@ Compiler - BIG-LC <br>
 | Function (taking multiple scalar arguments) | function main; <br> beginparameters <br>     a : int; <br> endparameters <br> beginlocalvars <br> endlocalvars <br> bodystart <br>    if a < 5 then return 10; <br>   endif; <br> endbody <br> |
 | Comments | ##comment |
 | Return Statement | if dog != cat then <br>  return dog; <br> endif; |
-| Booleans | dog 
 
 | Symbol in Language | Token Name |
 | ------------- | ------------- | 
