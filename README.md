@@ -54,8 +54,8 @@ Compiler - BIG-LC <br>
 | function | FUNCTION |
 | beginparameters | BEGIN_PARAMS |
 | endparameters | END_PARAMS |
-| beginlocalvars | BEGIN_LOCALS | 
-| endlocalvars | END_LOCALS |
+| beginlocalvars | BEGIN_LOCALS_VARS | 
+| endlocalvars | END_LOCALS_VARS |
 | bodystart | BODY_START |
 | bodyend | BODY_END |
 | int | INTEGER |
