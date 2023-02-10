@@ -102,7 +102,7 @@ not <br>
 return <br>
 
 Additional Specifications:  <br>
-Identifier names use only lowercase letters, cannot begin with an '@' or number, and cannot contain any spaces. Identifier names can however contain underscores, '@' symbols, and numbers within the name.  <br>
+Identifier names use only begin with lowercase letters. They cannot begin with any characters (_,@,%,*) or number, and cannot contain any spaces. Identifier names can however contain underscores, '@' symbols, and numbers within the name. Identifier cannot end with an '@' or '_'. <br>
 Language is case sensitive, all reserved words should be all lowercase. <br>
 To represent a newline, use \n. <br>
 A main method with no arguments is necessary for a program to function. <br>
