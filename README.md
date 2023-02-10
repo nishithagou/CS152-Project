@@ -28,6 +28,8 @@ Compiler - BIG-LC <br>
 | Write statement | a &= 5; <br> a &= a - 3; <br> write a; |
 | Function (taking multiple scalar arguments) | function main; <br> beginparameters <br>     a : int; <br> endparameters <br> beginlocalvars <br> endlocalvars <br> bodystart <br>    if a < 5 then return 10; <br>   endif; <br> endbody <br> |
 | Comments | ##comment |
+| Return Statement | if dog != cat then <br>  return dog; <br> endif; |
+| Booleans | dog 
 
 | Symbol in Language | Token Name |
 | ------------- | ------------- | 
@@ -96,14 +98,11 @@ else <br>
 while <br>
 loopbegin <br>
 loopend <br>
-continue <br>
 read <br>
 write <br>
 and <br>
 or <br>
 not <br>
-true <br>
-false <br>
 return <br>
 
 Additional Specifications:  <br>
