@@ -59,13 +59,11 @@ Compiler - BIG-LC <br>
 | bodyend | BODY_END |
 | int | INTEGER |
 | array| ARRAY |
-| of | OF |
 | if | IF |
 | then | THEN |
 | endif | ENDIF |
 | else | ELSE |
 | while | WHILE |
-| do | DO |
 | for | FOR |
 | loopbegin | LOOP_BEGIN |
 | loopend | LOOP_END |
@@ -90,14 +88,12 @@ bodystart <br>
 bodyend <br>
 int <br>
 array <br>
-of <br>
 if <br>
 then <br>
 else if <br>
 endif <br>
 else <br>
 while <br>
-do <br>
 loopbegin <br>
 loopend <br>
 continue <br>
