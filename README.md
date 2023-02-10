@@ -33,6 +33,8 @@ Compiler - BIG-LC <br>
 | ------------- | ------------- | 
 | ( | L_PAREN |
 | ) | R_PAREN |
+| \[ | R_SQ_BRACK |
+| \] | L_SQ_BRACK |
 | + | PLUS |
 | - | MINUS |
 | * | MULT |
