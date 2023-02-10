@@ -68,14 +68,11 @@ Compiler - BIG-LC <br>
 | for | FOR |
 | loopbegin | LOOP_BEGIN |
 | loopend | LOOP_END |
-| continue | CONTINUE |
 | read | READ |
 | write | WRITE |
 | and | AND |
 | or | OR |
 | not | NOT |
-| true | TRUE |
-| false | FALSE |
 | return | RETURN |
 
 
