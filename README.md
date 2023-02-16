@@ -102,7 +102,7 @@ not <br>
 return <br>
 
 Additional Specifications:  <br>
-Identifier names use only begin with letters. They cannot begin with any special characters (@,#,$.%.^.&.*) or numbers, and cannot contain any spaces. Identifier names also cannot contain any special characters (@,#,$.%.^.&.*). Identifier names cannot end with an underscore '_'. <br>
+Identifier names use only begin with letters. They cannot begin with any special characters (@,#,$.%.^.&.*) or numbers, and cannot contain any spaces. Identifier names also cannot contain any special characters (@,#,$.%.^.&.*). Identifier names cannot end with an underscore '_' or '&'. <br>
 Language is case sensitive, all reserved words should be all lowercase. <br>
 To represent a newline, use \n. <br>
 A main method with no arguments is necessary for a program to function. <br>
