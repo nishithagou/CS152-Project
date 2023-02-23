@@ -1,0 +1,25 @@
+function factorial;
+beginparameters
+  k : int;
+endparameters
+beginlocalvars
+endlocalvars
+bodystart
+if k<=1 then
+  return 1;
+endif;
+return k * factorial(k-1);
+bodyend
+
+function main;
+beginparameters
+endparameters
+beginlocalvars
+  n : int;
+  fact: int;
+endlocalvars
+bodystart
+  read n;
+  fac &= factorial(n);
+  write fac;
+bodyend
