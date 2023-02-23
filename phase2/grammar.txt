@@ -1,0 +1,50 @@
+*lowercase: non-terminal
+*uppercase: terminal
+
+program  -> function program | (epsilon)
+
+function -> FUNCTION IDENTIFIER SEMICOLON BEGINPARAMS declarations ENDPARAMS BEGINLOCALVARS declarations ENDLOCALVARS BODY_START statements BODY_END
+
+declarations -> declaration SEMICOLON declarations | (epsilon)
+
+declaration -> identifiers COLON INTEGER | identifiers COLON INT ARRAY L_SQ_BRACKET NUMBER R_SQ_BRACKET
+
+identifiers -> IDENTIFIER | IDENTIFIER COMMA identifiers
+
+statements -> statement SEMICOLON statements | statement SEMICOLON
+
+statement -> assign | ifthenelse | while | read | write | return
+
+assign -> variable ASSIGNMENT expression
+
+ifthenelse -> IF relational_expression THEN statements else_stmt ENDIF
+
+while -> WHILE relational_expression LOOP_BEGIN statements LOOP_END
+
+read -> READ variables
+
+write -> WRITE variables
+
+return -> RETURN expression
+
+else_stmt -> ELSE statements | (epsilon)
+
+relational_expr -> expression comparator expression
+
+comparator -> LESS_THAN | GREAT_THAN | LESS_THAN_EQ | GREAT_THAN_EQ | EQ_TO | NOT_EQ
+
+expressions -> expression | (epsilon)
+
+expression -> multExpression | multExpression addExpression
+
+addExpression -> PLUS expression | MINUS expression | (epsilon)
+
+multExpression -> val | val MULT multExpression | val DIV multExpression | val MOD multExpression
+
+val -> NUMBER | variable | L_PAREN expression R_PAREN | identifier L_PAREN expressions RPAREN
+
+variable -> IDENTIFIER
+
+variables -> variable | variable COMMA variables
+
+identifier -> IDENTIFIER
