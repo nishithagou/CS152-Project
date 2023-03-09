@@ -1,0 +1,1285 @@
+Useless nonterminals
+
+   identifiers
+   expressions
+   variables
+
+
+Terminals which are not used
+
+   IDENTIFIERS
+   EQ
+   AND
+   OR
+   NOT
+   AMPERSAND
+   COMMA
+
+
+Useless rules
+
+   48 identifiers: IDENTIFIER
+   49            | IDENTIFIER COMMA identifiers
+
+   50 expressions: expression
+   51            | /* empty */
+
+   52 variables: variable
+   53          | variable COMMA variables
+
+
+State 82 conflicts: 16 reduce/reduce
+State 96 conflicts: 16 reduce/reduce
+
+
+Grammar
+
+    0 $accept: program $end
+
+    1 program: functions
+
+    2 functions: function functions
+    3          | /* empty */
+
+    4 function: FUNCTION IDENTIFIER SEMICOLON BEGIN_PARAMS declarations END_PARAMS BEGIN_LOCAL_VARS declarations END_LOCAL_VARS BODY_START statements BODY_END
+
+    5 declarations: declaration SEMICOLON declarations
+    6             | /* empty */
+
+    7 declaration: identifier COLON INTEGER
+    8            | identifier COLON INTEGER ARRAY L_SQ_BRACKET NUMBER R_SQ_BRACKET
+
+    9 statements: statement SEMICOLON statements
+   10           | /* empty */
+
+   11 statement: assign
+   12          | ifthenelse
+   13          | while
+   14          | read
+   15          | write
+   16          | return
+   17          | variable L_SQ_BRACKET expression R_SQ_BRACKET ASSIGNMENT expression
+
+   18 assign: variable ASSIGNMENT expression
+
+   19 ifthenelse: IF relational_expression THEN statements else_stmt ENDIF
+
+   20 while: WHILE relational_expression LOOP_BEGIN statements LOOP_END
+
+   21 read: READ variable
+
+   22 write: WRITE variable
+
+   23 return: RETURN expression
+
+   24 else_stmt: ELSE statements
+   25          | /* empty */
+
+   26 relational_expression: expression comparator expression
+
+   27 comparator: LESS_THAN
+   28           | GREAT_THAN
+   29           | LESS_THAN_EQ
+   30           | GREAT_THAN_EQ
+   31           | EQ_TO
+   32           | NOT_EQ
+
+   33 expression: multExpression
+   34           | multExpression PLUS expression
+   35           | multExpression MINUS expression
+
+   36 multExpression: val
+   37               | val MULT multExpression
+   38               | val DIV multExpression
+   39               | val MOD multExpression
+
+   40 val: NUMBER
+   41    | variable
+   42    | L_PAREN expression R_PAREN
+   43    | identifier L_PAREN expression R_PAREN
+
+   44 variable: identifier
+   45         | L_PAREN expression R_PAREN
+   46         | identifier L_PAREN expression R_PAREN
+
+   47 identifier: IDENTIFIER
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+IDENTIFIER (258) 4 47
+NUMBER (259) 8 40
+FUNCTION (260) 4
+IDENTIFIERS (261)
+BEGIN_PARAMS (262) 4
+END_PARAMS (263) 4
+BEGIN_LOCAL_VARS (264) 4
+END_LOCAL_VARS (265) 4
+BODY_START (266) 4
+BODY_END (267) 4
+INTEGER (268) 7 8
+ARRAY (269) 8
+IF (270) 19
+THEN (271) 19
+ENDIF (272) 19
+ELSE (273) 24
+WHILE (274) 20
+LOOP_BEGIN (275) 20
+LOOP_END (276) 20
+MINUS (277) 35
+PLUS (278) 34
+MULT (279) 37
+DIV (280) 38
+MOD (281) 39
+NOT_EQ (282) 32
+EQ (283)
+EQ_TO (284) 31
+LESS_THAN (285) 27
+GREAT_THAN (286) 28
+LESS_THAN_EQ (287) 29
+GREAT_THAN_EQ (288) 30
+READ (289) 21
+WRITE (290) 22
+AND (291)
+OR (292)
+NOT (293)
+RETURN (294) 23
+L_PAREN (295) 42 43 45 46
+R_PAREN (296) 42 43 45 46
+L_SQ_BRACKET (297) 8 17
+AMPERSAND (298)
+R_SQ_BRACKET (299) 8 17
+COLON (300) 7 8
+SEMICOLON (301) 4 5 9
+COMMA (302)
+ASSIGNMENT (303) 17 18
+
+
+Nonterminals, with rules where they appear
+
+$accept (49)
+    on left: 0
+program (50)
+    on left: 1, on right: 0
+functions (51)
+    on left: 2 3, on right: 1 2
+function (52)
+    on left: 4, on right: 2
+declarations (53)
+    on left: 5 6, on right: 4 5
+declaration (54)
+    on left: 7 8, on right: 5
+statements (55)
+    on left: 9 10, on right: 4 9 19 20 24
+statement (56)
+    on left: 11 12 13 14 15 16 17, on right: 9
+assign (57)
+    on left: 18, on right: 11
+ifthenelse (58)
+    on left: 19, on right: 12
+while (59)
+    on left: 20, on right: 13
+read (60)
+    on left: 21, on right: 14
+write (61)
+    on left: 22, on right: 15
+return (62)
+    on left: 23, on right: 16
+else_stmt (63)
+    on left: 24 25, on right: 19
+relational_expression (64)
+    on left: 26, on right: 19 20
+comparator (65)
+    on left: 27 28 29 30 31 32, on right: 26
+expression (66)
+    on left: 33 34 35, on right: 17 18 23 26 34 35 42 43 45 46
+multExpression (67)
+    on left: 36 37 38 39, on right: 33 34 35 37 38 39
+val (68)
+    on left: 40 41 42 43, on right: 36 37 38 39
+variable (69)
+    on left: 44 45 46, on right: 17 18 21 22 41
+identifier (70)
+    on left: 47, on right: 7 8 43 44 46
+
+
+state 0
+
+    0 $accept: . program $end
+
+    FUNCTION  shift, and go to state 1
+
+    $default  reduce using rule 3 (functions)
+
+    program    go to state 2
+    functions  go to state 3
+    function   go to state 4
+
+
+state 1
+
+    4 function: FUNCTION . IDENTIFIER SEMICOLON BEGIN_PARAMS declarations END_PARAMS BEGIN_LOCAL_VARS declarations END_LOCAL_VARS BODY_START statements BODY_END
+
+    IDENTIFIER  shift, and go to state 5
+
+
+state 2
+
+    0 $accept: program . $end
+
+    $end  shift, and go to state 6
+
+
+state 3
+
+    1 program: functions .
+
+    $default  reduce using rule 1 (program)
+
+
+state 4
+
+    2 functions: function . functions
+
+    FUNCTION  shift, and go to state 1
+
+    $default  reduce using rule 3 (functions)
+
+    functions  go to state 7
+    function   go to state 4
+
+
+state 5
+
+    4 function: FUNCTION IDENTIFIER . SEMICOLON BEGIN_PARAMS declarations END_PARAMS BEGIN_LOCAL_VARS declarations END_LOCAL_VARS BODY_START statements BODY_END
+
+    SEMICOLON  shift, and go to state 8
+
+
+state 6
+
+    0 $accept: program $end .
+
+    $default  accept
+
+
+state 7
+
+    2 functions: function functions .
+
+    $default  reduce using rule 2 (functions)
+
+
+state 8
+
+    4 function: FUNCTION IDENTIFIER SEMICOLON . BEGIN_PARAMS declarations END_PARAMS BEGIN_LOCAL_VARS declarations END_LOCAL_VARS BODY_START statements BODY_END
+
+    BEGIN_PARAMS  shift, and go to state 9
+
+
+state 9
+
+    4 function: FUNCTION IDENTIFIER SEMICOLON BEGIN_PARAMS . declarations END_PARAMS BEGIN_LOCAL_VARS declarations END_LOCAL_VARS BODY_START statements BODY_END
+
+    IDENTIFIER  shift, and go to state 10
+
+    $default  reduce using rule 6 (declarations)
+
+    declarations  go to state 11
+    declaration   go to state 12
+    identifier    go to state 13
+
+
+state 10
+
+   47 identifier: IDENTIFIER .
+
+    $default  reduce using rule 47 (identifier)
+
+
+state 11
+
+    4 function: FUNCTION IDENTIFIER SEMICOLON BEGIN_PARAMS declarations . END_PARAMS BEGIN_LOCAL_VARS declarations END_LOCAL_VARS BODY_START statements BODY_END
+
+    END_PARAMS  shift, and go to state 14
+
+
+state 12
+
+    5 declarations: declaration . SEMICOLON declarations
+
+    SEMICOLON  shift, and go to state 15
+
+
+state 13
+
+    7 declaration: identifier . COLON INTEGER
+    8            | identifier . COLON INTEGER ARRAY L_SQ_BRACKET NUMBER R_SQ_BRACKET
+
+    COLON  shift, and go to state 16
+
+
+state 14
+
+    4 function: FUNCTION IDENTIFIER SEMICOLON BEGIN_PARAMS declarations END_PARAMS . BEGIN_LOCAL_VARS declarations END_LOCAL_VARS BODY_START statements BODY_END
+
+    BEGIN_LOCAL_VARS  shift, and go to state 17
+
+
+state 15
+
+    5 declarations: declaration SEMICOLON . declarations
+
+    IDENTIFIER  shift, and go to state 10
+
+    $default  reduce using rule 6 (declarations)
+
+    declarations  go to state 18
+    declaration   go to state 12
+    identifier    go to state 13
+
+
+state 16
+
+    7 declaration: identifier COLON . INTEGER
+    8            | identifier COLON . INTEGER ARRAY L_SQ_BRACKET NUMBER R_SQ_BRACKET
+
+    INTEGER  shift, and go to state 19
+
+
+state 17
+
+    4 function: FUNCTION IDENTIFIER SEMICOLON BEGIN_PARAMS declarations END_PARAMS BEGIN_LOCAL_VARS . declarations END_LOCAL_VARS BODY_START statements BODY_END
+
+    IDENTIFIER  shift, and go to state 10
+
+    $default  reduce using rule 6 (declarations)
+
+    declarations  go to state 20
+    declaration   go to state 12
+    identifier    go to state 13
+
+
+state 18
+
+    5 declarations: declaration SEMICOLON declarations .
+
+    $default  reduce using rule 5 (declarations)
+
+
+state 19
+
+    7 declaration: identifier COLON INTEGER .
+    8            | identifier COLON INTEGER . ARRAY L_SQ_BRACKET NUMBER R_SQ_BRACKET
+
+    ARRAY  shift, and go to state 21
+
+    $default  reduce using rule 7 (declaration)
+
+
+state 20
+
+    4 function: FUNCTION IDENTIFIER SEMICOLON BEGIN_PARAMS declarations END_PARAMS BEGIN_LOCAL_VARS declarations . END_LOCAL_VARS BODY_START statements BODY_END
+
+    END_LOCAL_VARS  shift, and go to state 22
+
+
+state 21
+
+    8 declaration: identifier COLON INTEGER ARRAY . L_SQ_BRACKET NUMBER R_SQ_BRACKET
+
+    L_SQ_BRACKET  shift, and go to state 23
+
+
+state 22
+
+    4 function: FUNCTION IDENTIFIER SEMICOLON BEGIN_PARAMS declarations END_PARAMS BEGIN_LOCAL_VARS declarations END_LOCAL_VARS . BODY_START statements BODY_END
+
+    BODY_START  shift, and go to state 24
+
+
+state 23
+
+    8 declaration: identifier COLON INTEGER ARRAY L_SQ_BRACKET . NUMBER R_SQ_BRACKET
+
+    NUMBER  shift, and go to state 25
+
+
+state 24
+
+    4 function: FUNCTION IDENTIFIER SEMICOLON BEGIN_PARAMS declarations END_PARAMS BEGIN_LOCAL_VARS declarations END_LOCAL_VARS BODY_START . statements BODY_END
+
+    IDENTIFIER  shift, and go to state 10
+    IF          shift, and go to state 26
+    WHILE       shift, and go to state 27
+    READ        shift, and go to state 28
+    WRITE       shift, and go to state 29
+    RETURN      shift, and go to state 30
+    L_PAREN     shift, and go to state 31
+
+    $default  reduce using rule 10 (statements)
+
+    statements  go to state 32
+    statement   go to state 33
+    assign      go to state 34
+    ifthenelse  go to state 35
+    while       go to state 36
+    read        go to state 37
+    write       go to state 38
+    return      go to state 39
+    variable    go to state 40
+    identifier  go to state 41
+
+
+state 25
+
+    8 declaration: identifier COLON INTEGER ARRAY L_SQ_BRACKET NUMBER . R_SQ_BRACKET
+
+    R_SQ_BRACKET  shift, and go to state 42
+
+
+state 26
+
+   19 ifthenelse: IF . relational_expression THEN statements else_stmt ENDIF
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    relational_expression  go to state 45
+    expression             go to state 46
+    multExpression         go to state 47
+    val                    go to state 48
+    variable               go to state 49
+    identifier             go to state 50
+
+
+state 27
+
+   20 while: WHILE . relational_expression LOOP_BEGIN statements LOOP_END
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    relational_expression  go to state 51
+    expression             go to state 46
+    multExpression         go to state 47
+    val                    go to state 48
+    variable               go to state 49
+    identifier             go to state 50
+
+
+state 28
+
+   21 read: READ . variable
+
+    IDENTIFIER  shift, and go to state 10
+    L_PAREN     shift, and go to state 31
+
+    variable    go to state 52
+    identifier  go to state 41
+
+
+state 29
+
+   22 write: WRITE . variable
+
+    IDENTIFIER  shift, and go to state 10
+    L_PAREN     shift, and go to state 31
+
+    variable    go to state 53
+    identifier  go to state 41
+
+
+state 30
+
+   23 return: RETURN . expression
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    expression      go to state 54
+    multExpression  go to state 47
+    val             go to state 48
+    variable        go to state 49
+    identifier      go to state 50
+
+
+state 31
+
+   45 variable: L_PAREN . expression R_PAREN
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    expression      go to state 55
+    multExpression  go to state 47
+    val             go to state 48
+    variable        go to state 49
+    identifier      go to state 50
+
+
+state 32
+
+    4 function: FUNCTION IDENTIFIER SEMICOLON BEGIN_PARAMS declarations END_PARAMS BEGIN_LOCAL_VARS declarations END_LOCAL_VARS BODY_START statements . BODY_END
+
+    BODY_END  shift, and go to state 56
+
+
+state 33
+
+    9 statements: statement . SEMICOLON statements
+
+    SEMICOLON  shift, and go to state 57
+
+
+state 34
+
+   11 statement: assign .
+
+    $default  reduce using rule 11 (statement)
+
+
+state 35
+
+   12 statement: ifthenelse .
+
+    $default  reduce using rule 12 (statement)
+
+
+state 36
+
+   13 statement: while .
+
+    $default  reduce using rule 13 (statement)
+
+
+state 37
+
+   14 statement: read .
+
+    $default  reduce using rule 14 (statement)
+
+
+state 38
+
+   15 statement: write .
+
+    $default  reduce using rule 15 (statement)
+
+
+state 39
+
+   16 statement: return .
+
+    $default  reduce using rule 16 (statement)
+
+
+state 40
+
+   17 statement: variable . L_SQ_BRACKET expression R_SQ_BRACKET ASSIGNMENT expression
+   18 assign: variable . ASSIGNMENT expression
+
+    L_SQ_BRACKET  shift, and go to state 58
+    ASSIGNMENT    shift, and go to state 59
+
+
+state 41
+
+   44 variable: identifier .
+   46         | identifier . L_PAREN expression R_PAREN
+
+    L_PAREN  shift, and go to state 60
+
+    $default  reduce using rule 44 (variable)
+
+
+state 42
+
+    8 declaration: identifier COLON INTEGER ARRAY L_SQ_BRACKET NUMBER R_SQ_BRACKET .
+
+    $default  reduce using rule 8 (declaration)
+
+
+state 43
+
+   40 val: NUMBER .
+
+    $default  reduce using rule 40 (val)
+
+
+state 44
+
+   42 val: L_PAREN . expression R_PAREN
+   45 variable: L_PAREN . expression R_PAREN
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    expression      go to state 61
+    multExpression  go to state 47
+    val             go to state 48
+    variable        go to state 49
+    identifier      go to state 50
+
+
+state 45
+
+   19 ifthenelse: IF relational_expression . THEN statements else_stmt ENDIF
+
+    THEN  shift, and go to state 62
+
+
+state 46
+
+   26 relational_expression: expression . comparator expression
+
+    NOT_EQ         shift, and go to state 63
+    EQ_TO          shift, and go to state 64
+    LESS_THAN      shift, and go to state 65
+    GREAT_THAN     shift, and go to state 66
+    LESS_THAN_EQ   shift, and go to state 67
+    GREAT_THAN_EQ  shift, and go to state 68
+
+    comparator  go to state 69
+
+
+state 47
+
+   33 expression: multExpression .
+   34           | multExpression . PLUS expression
+   35           | multExpression . MINUS expression
+
+    MINUS  shift, and go to state 70
+    PLUS   shift, and go to state 71
+
+    $default  reduce using rule 33 (expression)
+
+
+state 48
+
+   36 multExpression: val .
+   37               | val . MULT multExpression
+   38               | val . DIV multExpression
+   39               | val . MOD multExpression
+
+    MULT  shift, and go to state 72
+    DIV   shift, and go to state 73
+    MOD   shift, and go to state 74
+
+    $default  reduce using rule 36 (multExpression)
+
+
+state 49
+
+   41 val: variable .
+
+    $default  reduce using rule 41 (val)
+
+
+state 50
+
+   43 val: identifier . L_PAREN expression R_PAREN
+   44 variable: identifier .
+   46         | identifier . L_PAREN expression R_PAREN
+
+    L_PAREN  shift, and go to state 75
+
+    $default  reduce using rule 44 (variable)
+
+
+state 51
+
+   20 while: WHILE relational_expression . LOOP_BEGIN statements LOOP_END
+
+    LOOP_BEGIN  shift, and go to state 76
+
+
+state 52
+
+   21 read: READ variable .
+
+    $default  reduce using rule 21 (read)
+
+
+state 53
+
+   22 write: WRITE variable .
+
+    $default  reduce using rule 22 (write)
+
+
+state 54
+
+   23 return: RETURN expression .
+
+    $default  reduce using rule 23 (return)
+
+
+state 55
+
+   45 variable: L_PAREN expression . R_PAREN
+
+    R_PAREN  shift, and go to state 77
+
+
+state 56
+
+    4 function: FUNCTION IDENTIFIER SEMICOLON BEGIN_PARAMS declarations END_PARAMS BEGIN_LOCAL_VARS declarations END_LOCAL_VARS BODY_START statements BODY_END .
+
+    $default  reduce using rule 4 (function)
+
+
+state 57
+
+    9 statements: statement SEMICOLON . statements
+
+    IDENTIFIER  shift, and go to state 10
+    IF          shift, and go to state 26
+    WHILE       shift, and go to state 27
+    READ        shift, and go to state 28
+    WRITE       shift, and go to state 29
+    RETURN      shift, and go to state 30
+    L_PAREN     shift, and go to state 31
+
+    $default  reduce using rule 10 (statements)
+
+    statements  go to state 78
+    statement   go to state 33
+    assign      go to state 34
+    ifthenelse  go to state 35
+    while       go to state 36
+    read        go to state 37
+    write       go to state 38
+    return      go to state 39
+    variable    go to state 40
+    identifier  go to state 41
+
+
+state 58
+
+   17 statement: variable L_SQ_BRACKET . expression R_SQ_BRACKET ASSIGNMENT expression
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    expression      go to state 79
+    multExpression  go to state 47
+    val             go to state 48
+    variable        go to state 49
+    identifier      go to state 50
+
+
+state 59
+
+   18 assign: variable ASSIGNMENT . expression
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    expression      go to state 80
+    multExpression  go to state 47
+    val             go to state 48
+    variable        go to state 49
+    identifier      go to state 50
+
+
+state 60
+
+   46 variable: identifier L_PAREN . expression R_PAREN
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    expression      go to state 81
+    multExpression  go to state 47
+    val             go to state 48
+    variable        go to state 49
+    identifier      go to state 50
+
+
+state 61
+
+   42 val: L_PAREN expression . R_PAREN
+   45 variable: L_PAREN expression . R_PAREN
+
+    R_PAREN  shift, and go to state 82
+
+
+state 62
+
+   19 ifthenelse: IF relational_expression THEN . statements else_stmt ENDIF
+
+    IDENTIFIER  shift, and go to state 10
+    IF          shift, and go to state 26
+    WHILE       shift, and go to state 27
+    READ        shift, and go to state 28
+    WRITE       shift, and go to state 29
+    RETURN      shift, and go to state 30
+    L_PAREN     shift, and go to state 31
+
+    $default  reduce using rule 10 (statements)
+
+    statements  go to state 83
+    statement   go to state 33
+    assign      go to state 34
+    ifthenelse  go to state 35
+    while       go to state 36
+    read        go to state 37
+    write       go to state 38
+    return      go to state 39
+    variable    go to state 40
+    identifier  go to state 41
+
+
+state 63
+
+   32 comparator: NOT_EQ .
+
+    $default  reduce using rule 32 (comparator)
+
+
+state 64
+
+   31 comparator: EQ_TO .
+
+    $default  reduce using rule 31 (comparator)
+
+
+state 65
+
+   27 comparator: LESS_THAN .
+
+    $default  reduce using rule 27 (comparator)
+
+
+state 66
+
+   28 comparator: GREAT_THAN .
+
+    $default  reduce using rule 28 (comparator)
+
+
+state 67
+
+   29 comparator: LESS_THAN_EQ .
+
+    $default  reduce using rule 29 (comparator)
+
+
+state 68
+
+   30 comparator: GREAT_THAN_EQ .
+
+    $default  reduce using rule 30 (comparator)
+
+
+state 69
+
+   26 relational_expression: expression comparator . expression
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    expression      go to state 84
+    multExpression  go to state 47
+    val             go to state 48
+    variable        go to state 49
+    identifier      go to state 50
+
+
+state 70
+
+   35 expression: multExpression MINUS . expression
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    expression      go to state 85
+    multExpression  go to state 47
+    val             go to state 48
+    variable        go to state 49
+    identifier      go to state 50
+
+
+state 71
+
+   34 expression: multExpression PLUS . expression
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    expression      go to state 86
+    multExpression  go to state 47
+    val             go to state 48
+    variable        go to state 49
+    identifier      go to state 50
+
+
+state 72
+
+   37 multExpression: val MULT . multExpression
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    multExpression  go to state 87
+    val             go to state 48
+    variable        go to state 49
+    identifier      go to state 50
+
+
+state 73
+
+   38 multExpression: val DIV . multExpression
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    multExpression  go to state 88
+    val             go to state 48
+    variable        go to state 49
+    identifier      go to state 50
+
+
+state 74
+
+   39 multExpression: val MOD . multExpression
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    multExpression  go to state 89
+    val             go to state 48
+    variable        go to state 49
+    identifier      go to state 50
+
+
+state 75
+
+   43 val: identifier L_PAREN . expression R_PAREN
+   46 variable: identifier L_PAREN . expression R_PAREN
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    expression      go to state 90
+    multExpression  go to state 47
+    val             go to state 48
+    variable        go to state 49
+    identifier      go to state 50
+
+
+state 76
+
+   20 while: WHILE relational_expression LOOP_BEGIN . statements LOOP_END
+
+    IDENTIFIER  shift, and go to state 10
+    IF          shift, and go to state 26
+    WHILE       shift, and go to state 27
+    READ        shift, and go to state 28
+    WRITE       shift, and go to state 29
+    RETURN      shift, and go to state 30
+    L_PAREN     shift, and go to state 31
+
+    $default  reduce using rule 10 (statements)
+
+    statements  go to state 91
+    statement   go to state 33
+    assign      go to state 34
+    ifthenelse  go to state 35
+    while       go to state 36
+    read        go to state 37
+    write       go to state 38
+    return      go to state 39
+    variable    go to state 40
+    identifier  go to state 41
+
+
+state 77
+
+   45 variable: L_PAREN expression R_PAREN .
+
+    $default  reduce using rule 45 (variable)
+
+
+state 78
+
+    9 statements: statement SEMICOLON statements .
+
+    $default  reduce using rule 9 (statements)
+
+
+state 79
+
+   17 statement: variable L_SQ_BRACKET expression . R_SQ_BRACKET ASSIGNMENT expression
+
+    R_SQ_BRACKET  shift, and go to state 92
+
+
+state 80
+
+   18 assign: variable ASSIGNMENT expression .
+
+    $default  reduce using rule 18 (assign)
+
+
+state 81
+
+   46 variable: identifier L_PAREN expression . R_PAREN
+
+    R_PAREN  shift, and go to state 93
+
+
+state 82
+
+   42 val: L_PAREN expression R_PAREN .
+   45 variable: L_PAREN expression R_PAREN .
+
+    THEN           reduce using rule 42 (val)
+    THEN           [reduce using rule 45 (variable)]
+    LOOP_BEGIN     reduce using rule 42 (val)
+    LOOP_BEGIN     [reduce using rule 45 (variable)]
+    MINUS          reduce using rule 42 (val)
+    MINUS          [reduce using rule 45 (variable)]
+    PLUS           reduce using rule 42 (val)
+    PLUS           [reduce using rule 45 (variable)]
+    MULT           reduce using rule 42 (val)
+    MULT           [reduce using rule 45 (variable)]
+    DIV            reduce using rule 42 (val)
+    DIV            [reduce using rule 45 (variable)]
+    MOD            reduce using rule 42 (val)
+    MOD            [reduce using rule 45 (variable)]
+    NOT_EQ         reduce using rule 42 (val)
+    NOT_EQ         [reduce using rule 45 (variable)]
+    EQ_TO          reduce using rule 42 (val)
+    EQ_TO          [reduce using rule 45 (variable)]
+    LESS_THAN      reduce using rule 42 (val)
+    LESS_THAN      [reduce using rule 45 (variable)]
+    GREAT_THAN     reduce using rule 42 (val)
+    GREAT_THAN     [reduce using rule 45 (variable)]
+    LESS_THAN_EQ   reduce using rule 42 (val)
+    LESS_THAN_EQ   [reduce using rule 45 (variable)]
+    GREAT_THAN_EQ  reduce using rule 42 (val)
+    GREAT_THAN_EQ  [reduce using rule 45 (variable)]
+    R_PAREN        reduce using rule 42 (val)
+    R_PAREN        [reduce using rule 45 (variable)]
+    R_SQ_BRACKET   reduce using rule 42 (val)
+    R_SQ_BRACKET   [reduce using rule 45 (variable)]
+    SEMICOLON      reduce using rule 42 (val)
+    SEMICOLON      [reduce using rule 45 (variable)]
+    $default       reduce using rule 42 (val)
+
+
+state 83
+
+   19 ifthenelse: IF relational_expression THEN statements . else_stmt ENDIF
+
+    ELSE  shift, and go to state 94
+
+    $default  reduce using rule 25 (else_stmt)
+
+    else_stmt  go to state 95
+
+
+state 84
+
+   26 relational_expression: expression comparator expression .
+
+    $default  reduce using rule 26 (relational_expression)
+
+
+state 85
+
+   35 expression: multExpression MINUS expression .
+
+    $default  reduce using rule 35 (expression)
+
+
+state 86
+
+   34 expression: multExpression PLUS expression .
+
+    $default  reduce using rule 34 (expression)
+
+
+state 87
+
+   37 multExpression: val MULT multExpression .
+
+    $default  reduce using rule 37 (multExpression)
+
+
+state 88
+
+   38 multExpression: val DIV multExpression .
+
+    $default  reduce using rule 38 (multExpression)
+
+
+state 89
+
+   39 multExpression: val MOD multExpression .
+
+    $default  reduce using rule 39 (multExpression)
+
+
+state 90
+
+   43 val: identifier L_PAREN expression . R_PAREN
+   46 variable: identifier L_PAREN expression . R_PAREN
+
+    R_PAREN  shift, and go to state 96
+
+
+state 91
+
+   20 while: WHILE relational_expression LOOP_BEGIN statements . LOOP_END
+
+    LOOP_END  shift, and go to state 97
+
+
+state 92
+
+   17 statement: variable L_SQ_BRACKET expression R_SQ_BRACKET . ASSIGNMENT expression
+
+    ASSIGNMENT  shift, and go to state 98
+
+
+state 93
+
+   46 variable: identifier L_PAREN expression R_PAREN .
+
+    $default  reduce using rule 46 (variable)
+
+
+state 94
+
+   24 else_stmt: ELSE . statements
+
+    IDENTIFIER  shift, and go to state 10
+    IF          shift, and go to state 26
+    WHILE       shift, and go to state 27
+    READ        shift, and go to state 28
+    WRITE       shift, and go to state 29
+    RETURN      shift, and go to state 30
+    L_PAREN     shift, and go to state 31
+
+    $default  reduce using rule 10 (statements)
+
+    statements  go to state 99
+    statement   go to state 33
+    assign      go to state 34
+    ifthenelse  go to state 35
+    while       go to state 36
+    read        go to state 37
+    write       go to state 38
+    return      go to state 39
+    variable    go to state 40
+    identifier  go to state 41
+
+
+state 95
+
+   19 ifthenelse: IF relational_expression THEN statements else_stmt . ENDIF
+
+    ENDIF  shift, and go to state 100
+
+
+state 96
+
+   43 val: identifier L_PAREN expression R_PAREN .
+   46 variable: identifier L_PAREN expression R_PAREN .
+
+    THEN           reduce using rule 43 (val)
+    THEN           [reduce using rule 46 (variable)]
+    LOOP_BEGIN     reduce using rule 43 (val)
+    LOOP_BEGIN     [reduce using rule 46 (variable)]
+    MINUS          reduce using rule 43 (val)
+    MINUS          [reduce using rule 46 (variable)]
+    PLUS           reduce using rule 43 (val)
+    PLUS           [reduce using rule 46 (variable)]
+    MULT           reduce using rule 43 (val)
+    MULT           [reduce using rule 46 (variable)]
+    DIV            reduce using rule 43 (val)
+    DIV            [reduce using rule 46 (variable)]
+    MOD            reduce using rule 43 (val)
+    MOD            [reduce using rule 46 (variable)]
+    NOT_EQ         reduce using rule 43 (val)
+    NOT_EQ         [reduce using rule 46 (variable)]
+    EQ_TO          reduce using rule 43 (val)
+    EQ_TO          [reduce using rule 46 (variable)]
+    LESS_THAN      reduce using rule 43 (val)
+    LESS_THAN      [reduce using rule 46 (variable)]
+    GREAT_THAN     reduce using rule 43 (val)
+    GREAT_THAN     [reduce using rule 46 (variable)]
+    LESS_THAN_EQ   reduce using rule 43 (val)
+    LESS_THAN_EQ   [reduce using rule 46 (variable)]
+    GREAT_THAN_EQ  reduce using rule 43 (val)
+    GREAT_THAN_EQ  [reduce using rule 46 (variable)]
+    R_PAREN        reduce using rule 43 (val)
+    R_PAREN        [reduce using rule 46 (variable)]
+    R_SQ_BRACKET   reduce using rule 43 (val)
+    R_SQ_BRACKET   [reduce using rule 46 (variable)]
+    SEMICOLON      reduce using rule 43 (val)
+    SEMICOLON      [reduce using rule 46 (variable)]
+    $default       reduce using rule 43 (val)
+
+
+state 97
+
+   20 while: WHILE relational_expression LOOP_BEGIN statements LOOP_END .
+
+    $default  reduce using rule 20 (while)
+
+
+state 98
+
+   17 statement: variable L_SQ_BRACKET expression R_SQ_BRACKET ASSIGNMENT . expression
+
+    IDENTIFIER  shift, and go to state 10
+    NUMBER      shift, and go to state 43
+    L_PAREN     shift, and go to state 44
+
+    expression      go to state 101
+    multExpression  go to state 47
+    val             go to state 48
+    variable        go to state 49
+    identifier      go to state 50
+
+
+state 99
+
+   24 else_stmt: ELSE statements .
+
+    $default  reduce using rule 24 (else_stmt)
+
+
+state 100
+
+   19 ifthenelse: IF relational_expression THEN statements else_stmt ENDIF .
+
+    $default  reduce using rule 19 (ifthenelse)
+
+
+state 101
+
+   17 statement: variable L_SQ_BRACKET expression R_SQ_BRACKET ASSIGNMENT expression .
+
+    $default  reduce using rule 17 (statement)

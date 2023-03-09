@@ -1,0 +1,14 @@
+func fibonacci. k
+, _temp0
+<= _temp0, k, 1
+?:= if_true0, _temp1
+:= else0
+: if_true0
+:= endif0
+: else0
+= c, a
+: endif0
+func main. n
+. fib_b
+= fib_n, fibonacci
+.>
