@@ -73,18 +73,3 @@ return return RETURN; position += yyleng;
 
 %%
 int yyparse();
-
-int main(int argc, char* argv[]) {
-  if (argc == 2) {
-    yyin = fopen(argv[1], "r");
-    if (yyin == 0) {
-      printf("Error opening file.");
-      exit(1);
-    }
-  }
-  else {
-    yyin = stdin;
-  }
-  yyparse();
-  return 0;
-}

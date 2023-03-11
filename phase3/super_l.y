@@ -4,6 +4,16 @@
 #include "CodeNode.h"
 #define YY_NO_UNPUT
 #include <stdio.h>
+#include <queue>
+#include <stack>
+#include <vector>
+#include <stack>
+#include <sstream>
+#include <fstream>
+#include <iostream>
+
+using namespace std;
+bool errorFree = true;
 void yyerror(const char* error);
 extern FILE* yyin;
 %}
@@ -12,8 +22,14 @@ extern FILE* yyin;
 int tempCounter = 0;
 bool isArray;
 int yylex();
-%}
+bool isFunction = true;
 
+vector<string> functionList;
+vector <string> identifierList;
+
+using namespace std;
+
+%}
 
 %union{
   struct CodeNode *code_node;
@@ -133,6 +149,8 @@ function: FUNCTION IDENTIFIER SEMICOLON BEGIN_PARAMS declarations END_PARAMS BEG
   node->code += statements->code;
 
   node->code += std::string("endfunc \n ");
+  isFunction = true;
+
 
   $$ = node;
 };
@@ -153,12 +171,18 @@ declarations: declaration SEMICOLON declarations {
 declaration:  identifier COLON INTEGER {
   CodeNode *node = new CodeNode;
   std::string id = $1;
+  identifierList.push_back(id);
+
+
   node->code += std::string(". ") + id + std::string("\n");
   $$ = node;
 }
   | identifier COLON INTEGER ARRAY L_SQ_BRACKET NUMBER R_SQ_BRACKET {
     CodeNode *node = new CodeNode;
     std::string id = $1;
+    identifierList.push_back(id);
+
+
     std::string numb = std::to_string($6);
     node->code += std::string(".[] ") + id + std::string(", ") + numb + std::string("\n");
     $$ = node;
@@ -233,8 +257,7 @@ statement: assign {
   node->code += code_node1->code + code_node2->code;
   node->code += "[]= " + id + ", " + code_node1->name + ", " + code_node2->name + "\n";
   $$ = node;
-  }
-
+}
 ;
 
 assign: variable ASSIGNMENT expression {
@@ -340,14 +363,16 @@ comparator: LESS_THAN {
   $$ = node;
 };
 
-expressions: expression {
+expressions: expression COMMA expressions {
+  CodeNode *code_node1 = $1;
+  CodeNode *code_node2 = $3;
+  CodeNode *node = new CodeNode;
+  node->code += code_node1->code + code_node2->code;
+  $$ = node;
+} | expression  {
   CodeNode *code_node1 = $1;
   CodeNode *node = new CodeNode;
   node->code += code_node1->code;
-  $$ = node;
-}
-  |  {
-  CodeNode *node = new CodeNode;
   $$ = node;
 };
 
@@ -450,10 +475,18 @@ val: NUMBER {
     | identifier L_PAREN expression R_PAREN {
     CodeNode *node = new CodeNode;
     std::string id = $1;
+    node->name = id;
+    node->code += "";
+    $$ = node;
+
+}  | identifier L_PAREN expressions R_PAREN {
+    CodeNode *node = new CodeNode;
+    std::string id = $1;
     CodeNode *code_node1 = $3;
     node->name = id;
     node->code += code_node1->code;
     $$ = node;
+
 };
 
 variable: identifier {
@@ -463,19 +496,16 @@ variable: identifier {
   node->code = "";
   node->name = name;
   $$ = node;
-} | L_PAREN expression R_PAREN {
-    CodeNode *code_node1 = $2;
-    CodeNode *node = new CodeNode;
-    node->name = code_node1->name;
-    node->code = code_node1->code;
-    $$ = node;
-} | identifier L_PAREN expression R_PAREN { //127
-    CodeNode *node = new CodeNode;
-    std::string id = $1;
-    CodeNode *code_node1 = $3;
-    node->name = id;
-    node->code += code_node1->code;
-    $$ = node;
+} | identifier L_SQ_BRACKET expression R_SQ_BRACKET {
+  isArray = true;
+  CodeNode *node1 = $3;
+  std::string id = $1;
+  CodeNode *node2 = new CodeNode;
+  std::string temp = "_temp" + std::to_string(tempCounter);
+  node2->name = id;
+  node2->code += node1->code;
+  node2->code += std::string("=[] ") + temp + std::string(", ") + id + std::string(", ") + node1->name + std::string("\n");
+  $$ = node2;
 };
 
 variables: variable {
@@ -493,6 +523,12 @@ variables: variable {
 };
 
 identifier: IDENTIFIER {
+  if(isFunction == true){
+    functionList.push_back($1);
+    isFunction = false;
+  }
+
+
   $$ = $1;
 };
 
@@ -503,4 +539,37 @@ void yyerror(const char* error) {
   extern char* yytext;
   printf("ERROR: %s at symbol \"%s\" on line %d\n", error, yytext, row);
   exit(1);
+}
+
+int main(int argc, char ** argv) {
+	if (argc >= 2) {
+		yyin = fopen(argv[1], "r");
+		if (yyin == NULL) {
+			yyin = stdin;
+		}
+	}
+	else {
+		yyin = stdin;
+	}
+	yyparse();
+
+	for (int i = 0; i < functionList.size() - 1; ++i) {
+		for (int j = i+1; j < functionList.size(); ++j) {
+			if (functionList.at(i) == functionList.at(j)) {
+				errorFree = false;
+				printf("ERROR: Multiple functions with the same name.");
+			}
+		}
+	}
+
+  for (int i = 0; i < identifierList.size() - 1; ++i) {
+		for (int j = i+1; j < identifierList.size(); ++j) {
+			if (identifierList.at(i) == identifierList.at(j)) {
+				printf("ERROR: Multiple identifiers with the same name.");
+        errorFree = false;
+			}
+		}
+	}
+
+	return 1;
 }

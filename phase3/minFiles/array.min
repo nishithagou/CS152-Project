@@ -1,0 +1,27 @@
+function main;
+beginparameters
+endparameters
+beginlocalvars
+
+  a : int array[20];
+  b : int;
+  c : int;
+
+endlocalvars
+
+bodystart
+
+  b &= 3;
+  c &= 5;
+  a[0] &= b + c;
+  write a[0];
+
+  a[1] &= 100;
+  write a[1];
+
+  a[2] &= 200;
+  write a[2];
+
+  a[3] &= a[0] * (a[1] + c);
+  write a[3];
+bodyend
