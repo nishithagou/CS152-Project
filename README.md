@@ -74,6 +74,7 @@ Compiler - BIG-LC <br>
 | or | OR |
 | not | NOT |
 | return | RETURN |
+| break | BREAK |
 
 
 reserved words: <br>
