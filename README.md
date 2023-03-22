@@ -100,6 +100,7 @@ and <br>
 or <br>
 not <br>
 return <br>
+break <br>
 
 Additional Specifications:  <br>
 Identifier names use only begin with letters. They cannot begin with any special characters (@,#,$.%.^.&.*) or numbers, and cannot contain any spaces. Identifier names also cannot contain any special characters (@,#,$.%.^.&.*). Identifier names cannot end with an underscore '_' or '&'. <br>
