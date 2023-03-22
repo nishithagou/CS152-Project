@@ -1,0 +1,26 @@
+## This is an if-else statement
+
+function main;
+beginparameters
+endparameters
+beginlocalvars
+
+a : int;
+b : int;
+c : int;
+
+endlocalvars
+bodystart
+
+  a &= 100;
+  b &= 50;
+
+  if a < b then
+    c &= b;
+  else
+    c &= a;
+  endif;
+
+  write c;  ## This should print out 100
+
+bodyend

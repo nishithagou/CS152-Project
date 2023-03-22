@@ -1,0 +1,19 @@
+## This is a simple loop that counts from 1 to 10
+
+function main;
+beginparameters
+endparameters
+beginlocalvars
+
+i : int;
+
+endlocalvars
+bodystart
+
+  i &= 0;
+  while i < 10 beginloop
+    i &= i + 1;
+    write i;
+  endloop;
+
+bodyend

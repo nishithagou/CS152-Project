@@ -1,0 +1,22 @@
+function add;
+beginparameters
+	a : int;
+	b : int;
+endparameters
+beginlocalvars
+endlocalvars
+bodystart
+        return a + b;
+bodyend
+
+
+function mult;
+beginparameters
+	a : int;
+	b : int;
+endparameters
+beginlocalvars
+endlocalvars
+bodystart
+        return a * b;
+bodyend

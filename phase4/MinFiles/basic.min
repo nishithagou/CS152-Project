@@ -1,0 +1,15 @@
+function main;
+beginparameters
+endparameters
+beginlocalvars
+
+  a : int;
+
+endlocalvars
+
+bodystart
+
+  a &= 150;
+  write a;
+
+bodyend

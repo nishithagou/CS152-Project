@@ -1,0 +1,19 @@
+function main;
+beginparameters
+endparameters
+beginlocalvars
+
+  a : int;
+  b : int;
+  c : int;
+
+endlocalvars
+
+bodystart
+
+  a &= 100;
+  b &=  50;
+  c &= a + b;
+  write c;
+
+bodyend
